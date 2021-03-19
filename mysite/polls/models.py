@@ -24,4 +24,11 @@ class Choice(models.Model):
         return self.choice_text
 
 
+class Information(models.Model):
+    inform_text = models.CharField(max_length=200)
+    inform_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return self.inform_text
+
 # Create your models here.

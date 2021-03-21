@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django in the air</title>
+</head>
+<style>
+    body {
+        background-color: bisque;
+        color: black;
+        font: normal 16pt Times;
+    }
+</style>
+
+<body>
+    <h3>Detail</h3>
+    <hr>
+    <h4>{{ question.question_text }}</h4>
+    <h4>Escolha as opções:</h4>
+    <ol>
+
+        {% for choice in question.choice_set.all %}
+        <li>
+            <h5>{{ choice.choice_text}}
+            </h5>
+        </li>
+        {% endfor %}
+    </ol>
+
+</body>
+
+</html>

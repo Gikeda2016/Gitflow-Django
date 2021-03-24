@@ -28,11 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',  # inserido o Polls.apps
+    'polls.apps.PollsConfig',  # inserido o Polls.apps class
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

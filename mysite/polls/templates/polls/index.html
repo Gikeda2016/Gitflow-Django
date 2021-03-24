@@ -16,20 +16,19 @@
 </style>
 
 <body>
-    <h3>Questions:</h3>
-    <hr> {% if latest_question_list %}
-    <ol>
+    <!-- <h3>Questions:</h3> -->
+    {% if latest_question_list %}
+    <ul>
         {% for question in latest_question_list %}
         <li>
-            <a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a>
+            <!-- <a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a> -->
             <!-- Para url reconhecer polls:detail -->
             <!-- <a href="{% url 'detail' question.id %}">{{question.question_text}}</a> -->
             <!-- Trocou  caminho por url aponta para view -->
-            <!-- <a href="/polls/{{question.id}}/">{{question.question_text}}</a> -->
-            <br>
+            <a href="/polls/{{question.id}}/">{{question.question_text}}</a>
         </li>
         {% endfor %}
-    </ol>
+    </ul>
     {% else %}
     <p>No polls are available</p>
     {% endif %}

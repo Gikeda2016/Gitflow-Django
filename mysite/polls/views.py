@@ -8,11 +8,13 @@ from .models import Question
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     template = loader.get_template('polls/index.html')
-    context = {'latest_question_list': latest_question_list}
+    context = {
+        'latest_question_list': latest_question_list,
+        }
 
-    return render(request, 'polls/index.html', context)
+    # return render(request, 'polls/index.html', context)
 
-    # return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render(context, request))
 
     # title = '<h2>Listando as últimas mensagens</h2><hr>'
     # # output = ', '.join([q. question_text for q in latest_question_list])
@@ -46,5 +48,5 @@ def vote(request, question_id):
 
 
 def info(request):
-    return HttpResponse("<h2><u>Framework Django 3.0</u> </h2><hr><h4><ol><li>Rodando no Server</li>   <li> Utilizando BD SQlite 3.0 </li></ol></h4>")
+    return HttpResponse("<h2><u>Framework Django 3.0</u> </h2><hr><h4><ol><li>Rodando no WampServer 3.2.3 </li>   <li> Agora BD MySQL 8.0.1 </li></ol></h4>")
 

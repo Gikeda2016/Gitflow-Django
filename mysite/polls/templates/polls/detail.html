@@ -19,18 +19,24 @@
 <body>
     <h3>Detail</h3>
     <hr>
-    <h4>{{ question.question_text }}</h4>
+    <h4>
+        <u>Question: {{ question.question_text }}</u></h4>
     <h4>Escolha as opções:</h4>
     <ol>
 
         {% for choice in question.choice_set.all %}
         <li>
             <h5>{{ choice.choice_text}}
+                <br>
             </h5>
         </li>
         {% endfor %}
     </ol>
-
+    <hr>
+    <h5>
+        <a href="/polls/">
+            &lt;&lt;&nbsp Retorna ao Questions</a>
+    </h5>
 </body>
 
 </html>

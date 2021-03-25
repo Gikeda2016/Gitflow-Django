@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django in the air</title>
+</head>
+<style>
+    body {
+        background-color: bisque;
+        color: black;
+        font: normal 16pt Times;
+    }
+    
+    li {
+        color: brown;
+    }
+    
+    h5 {
+        color: red;
+    }
+</style>
+
+<body>
+    <h3>Detail</h3>
+    <hr>
+    <p></p>
+    {% if question.choice_set.all.count > 0 %}
+    <h4>
+        <u>Question: {{ question.question_text }}</u></h4>
+    <h4>Escolha as opções:</h4>
+    <ol>
+
+        {% for choice in question.choice_set.all %}
+        <li>
+            <h5>{{ choice.choice_text}}
+                <br>
+            </h5>
+        </li>
+        {% endfor %}
+    </ol>
+    {% else %}
+    <h5> Alerta : ... Não há "Question" correspondente .</h5>
+    {% endif %}
+    <hr>
+    <h5>
+        <a href="/polls/">
+            &lt;&lt;&nbsp Retorna ao Questions</a>
+    </h5>
+</body>
+
+</html>

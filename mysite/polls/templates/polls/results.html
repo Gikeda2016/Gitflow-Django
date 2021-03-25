@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django lives !!</title>
+    <title>Django</title>
 </head>
 <style>
-    body {
+        body {
         background-color: bisque;
         color: black;
         font: normal 16pt Times;
@@ -23,32 +23,28 @@
     
     form {
         margin: 0 auto;
-        width: 400px;
+        width: 600px;
         padding: 1em;
         border: 1px solid #ccc;
         border-radius: 1em;
-    }
 </style>
 
 <body>
     <form>
 
-        <h2>{{question.question_text}}</h2>
-        <hr> {% if error_message %}
-        <p><strong>{{error_message}}</strong></p>
-        {% endif %}
-    </form>
-
-    <form action="{% url 'polls:vote' question.id %}" method="post">
-        {% csrf_token %} {% for choice in question.choice_set.all %}
-        <input type="radio" name="choice" id="choice {{forloop.counter}}" value="{{choice.id}}">
-        <label for="choice{{ forloop.counter }}"> {{choice.choice_text}} </label>
-        <br> {% endfor %}
-
-        <input type="submit" value="Vote">
+        <h2>{{question.question_text}} </h2>
         <hr>
+        <ul>
+            {% for choice in question.choice_set.all %}
+            <li> {{choice.votes}} vote{{choice.votes|pluralize}} --->>> {{choice.choice_text}}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+
+        <a href="{% url 'polls:detail' question.id %}"> Vote again?</a><br><br>
         <a href="{% url 'polls:index' %}"> Back to Question?</a>
     </form>
+
 </body>
 
 </html>

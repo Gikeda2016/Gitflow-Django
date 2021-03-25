@@ -13,25 +13,43 @@
         color: black;
         font: normal 16pt Times;
     }
+    
+    i {
+        font: normal 10pt Roman;
+        color: grey;
+    }
+    
+    form {
+        margin: 0 auto;
+        width: 450px;
+        padding: 1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+    }
 </style>
 
 <body>
-    <h3>Questions:</h3>
-    <hr>
-    <p></p>
-    {% if latest_question_list %}
-    <ol>
-        {% for question in latest_question_list %}
-        <li>
+    <form>
+        <h3>Questions:</h3>
+        <hr>
+        <p></p>
+        {% if latest_question_list %}
+        <ol>
+            {% for question in latest_question_list %}
+            <li>
 
-            <a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a>
+                <p> <a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a> <i>[{{question.pub_date}}]</i>
+                </p>
 
-        </li>
-        <br> {% endfor %}
-    </ol>
-    {% else %}
-    <p>No polls are available</p>
-    {% endif %}
+
+            </li>
+            <br> {% endfor %}
+        </ol>
+        {% else %}
+        <p>No polls are available</p>
+        {% endif %}
+    </form>
+
 </body>
 
 </html>
